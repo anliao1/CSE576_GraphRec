@@ -1,0 +1,10 @@
+env/
+__pycache__/
+*.pyc
+.DS_Store
+*.pickle
+*.txt
+*.rar
+Ciao/dataset/
+data/
+Epinions/dataset/
