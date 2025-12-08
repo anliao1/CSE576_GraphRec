@@ -80,7 +80,7 @@ Run Dynamic Context-Aware β gate: Replace the original ```Social_Aggregators.py
 
 Run Dynamic Context-Aware μ gate: Replace the original ```UV_Aggregators.py``` to ```UV_Aggregators_miu.py```, and keep all of the other files unchanged.
 
-Run Dynamic Context-Aware α,β,μ gate combined: Replace the original ```Social_Aggregators.py``` to ```Social_Aggregators_beta.py```; Replace the original ```UV_Aggregators.py``` to ```UV_Aggregators_miu.py```and and uncomment the lines marked with ```#update```, and keep all of the other files unchanged.
+Run Dynamic Context-Aware α,β,μ gate combined: Replace the original ```Social_Aggregators.py``` to ```Social_Aggregators_beta.py```; Replace the original ```UV_Aggregators.py``` to ```UV_Aggregators_miu.py```and  uncomment the lines marked with ```#update```, and keep all of the other files unchanged.
 ## Introduction
  Graph Data in Social Recommendation. It contains two graphs including the user-item graph (left part) and the user-user social graph (right part). Note that the number on the edges of the user-item graph denotes the opinions (or rating score) of users on the items via the interactions.
 ![ 123](intro.png "Social Recommendations")
