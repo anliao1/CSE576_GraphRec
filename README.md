@@ -8,7 +8,7 @@
 In recent years, Graph Neural Networks (GNNs), which can naturally integrate node information and topological structure, have been demonstrated to be powerful in learning on graph data. These advantages of GNNs provide great potential to ad- vance social recommendation since data in social recommender systems can be represented as user-user social graph and user-item graph; and learning latent factors of users and items is the key. However, building social recommender systems based on GNNs faces challenges. For example, the user-item graph encodes both interactions and their associated opinions; social relations have heterogeneous strengths; users involve in two graphs (e.g., the user-user social graph and the user-item graph). To address the three aforementioned challenges simultaneously, in this paper, we present a novel graph neural network framework (GraphRec) for social recommendations. In particular, we provide a principled approach to jointly capture interactions and opinions in the user-item graph and propose the framework GraphRec, which coherently models two graphs and heterogeneous strengths. Extensive experiments on two real-world datasets demonstrate the effectiveness of the proposed framework GraphRec.
 
 ## Data Processing
-
+MovieLens / Amazon / Ciao / Epinions...
 ## Ablation Study
 This module evaluates the importance of each GraphRec component.
 Ablation variants implemented:
@@ -21,6 +21,11 @@ Ablation variants implemented:
 | **No-β**          | Removes social aggregation attention                        |
 | **No-μ**          | Removes user aggregation attention                          |
 | **No-α&-β**  | Removes item aggregation attention &   Removes social aggregation attention                      |
+
+Run GraphRec-SN Ablation Study:
+```
+python GraphRec-SN.py
+```
 
 ## Dynamic Context-Aware Attention (DCA)
 We introduce learnable gates that adaptively modulate α, β, μ based on context, improving flexibility and handling noisy signals.
