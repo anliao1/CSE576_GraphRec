@@ -3,22 +3,7 @@
 ## GraphRec: Graph Neural Networks for Social Recommendation
 
 ## Abstract
-GraphRec models social recommendation through three attention
-pathways over item interactions (𝛼), social neighbors (𝛽), and user–
-opinion features (𝜇). However, the necessity and robustness of these
-components remain unclear, particularly under varying graph fi-
-delity. We revisit GraphRec with extensive ablation studies and pro-
-pose Dynamic Context-Aware Attention (DCA), a lightweight
-gating extension that adaptively modulates the three pathways
-based on local context. Our ablations reveal that each pathway con-
-tributes differently across datasets: social aggregation (𝛽) is most
-influential on Ciao, while opinion aggregation (𝜇) plays a larger
-role on Epinions; and static attention proves vulnerable to sparse or
-noisy relations. Our proposed DCA extension mitigates these issues
-by amplifying reliable signals and down-weighting inconsistent
-ones. Across four datasets, DCA is validated to improve accuracy
-and stability, with the combined DCA-ALL model achieving the
-strongest overall performance.
+GraphRec models social recommendation through three attention pathways over item interactions (𝛼), social neighbors (𝛽), and user–opinion features (𝜇). However, the necessity and robustness of these components remain unclear, particularly under varying graph fidelity. We revisit GraphRec with extensive ablation studies and propose Dynamic Context-Aware Attention (DCA), a lightweight gating extension that adaptively modulates the three pathways based on local context. Our ablations reveal that each pathway con- tributes differently across datasets: social aggregation (𝛽) is most influential on Ciao, while opinion aggregation (𝜇) plays a larger role on Epinions; and static attention proves vulnerable to sparse or noisy relations. Our proposed DCA extension mitigates these issues by amplifying reliable signals and down-weighting inconsistent ones. Across four datasets, DCA is validated to improve accuracy and stability, with the combined DCA-ALL model achieving the strongest overall performance.
 
 ## Repository Structure & File Descriptions
 
