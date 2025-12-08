@@ -40,6 +40,12 @@ We construct a hybrid dataset by mapping users from **MovieLens 32M** to the soc
 ### **Amazon Setup**
 We construct a hybrid dataset by mapping users from **Amazon** to the social graph structure of **Ciao**.
 Data: [Amazon Dataset](https://snap.stanford.edu/data/amazon-meta.html)
+1. Preprocess Amazon TXT dataset → rating matrix
+preprocess_amazon.py
+2. Build social / trust graph
+extract_trust.py
+3. Expand to format that GraphRec can use
+amazon_graphrec.py
 
 ## Ablation Study
 This module evaluates the importance of each GraphRec component.
@@ -47,8 +53,8 @@ Ablation variants implemented:
 | Variant           | Description                                                 |
 | ----------------- | ----------------------------------------------------------- |
 | **GraphRec-SN**   | Removes the social graph → uses only item-space aggregation |
-| **GraphRec+AC** | **Attention Context**: The baseline GraphRec model using standard attention mechanisms to aggregate context from neighbors. |
-| **GraphRec+AG** | **Attention Gating**: Our proposed **DCA** model that replaces standard attention with learnable dynamic gates ($\alpha, \beta, \mu$) to filter noisy signals. |
+| **GraphRec+AC** | **Attention Context**: Enriches the user embedding by adding a user-attribute vector directly to the representation through simple concatenation. Does not adapt contextual information dynamically|
+| **GraphRec+AG** | **Attention Gating**: Uses a learnable gate to decide how much user-attribute information should influence the final embedding. Allow the model to adpatively filter or emphasize attribute signals based on context |
 | **No-α**          | Removes item aggregation attention                          |
 | **No-β**          | Removes social aggregation attention                        |
 | **No-μ**          | Removes user aggregation attention                          |
