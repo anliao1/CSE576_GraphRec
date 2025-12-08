@@ -22,6 +22,11 @@ Ablation variants implemented:
 | **No-μ**          | Removes user aggregation attention                          |
 | **No-α&-β**  | Removes item aggregation attention &   Removes social aggregation attention                      |
 
+Run baseline:
+Unzip graphrec-ciao-epinions.zip
+```
+python run_GraphRec_complete.py
+```
 Run GraphRec-SN Ablation Study:
 ```
 python GraphRec-SN.py
