@@ -1,6 +1,6 @@
-# GraphRec-WWW19
+# GraphRec
 
-## GraphRec: Graph Neural Networks for Social Recommendation
+## Beyond GraphRec: Can Graph Neural Networks Step Further for Multifaceted Social Recommendation?
 
 ## Abstract
 GraphRec models social recommendation through three attention pathways over item interactions (𝛼), social neighbors (𝛽), and user–opinion features (𝜇). However, the necessity and robustness of these components remain unclear, particularly under varying graph fidelity. We revisit GraphRec with extensive ablation studies and propose Dynamic Context-Aware Attention (DCA), a lightweight gating extension that adaptively modulates the three pathways based on local context. Our ablations reveal that each pathway con- tributes differently across datasets: social aggregation (𝛽) is most influential on Ciao, while opinion aggregation (𝜇) plays a larger role on Epinions; and static attention proves vulnerable to sparse or noisy relations. Our proposed DCA extension mitigates these issues by amplifying reliable signals and down-weighting inconsistent ones. Across four datasets, DCA is validated to improve accuracy and stability, with the combined DCA-ALL model achieving the strongest overall performance.
@@ -92,10 +92,17 @@ The overall architecture of the proposed model. It contains three major componen
 ![ 123](GraphRec.png "GraphRec")
 
 
-## Original Code
-
-Author: Wenqi Fan (https://wenqifan03.github.io, email: wenqifan03@gmail.com) 
-
+## Original Code and Most Related Work
+```
+@inproceedings{fan2019graph,
+  title={Graph Neural Networks for Social Recommendation},
+  author={Fan, Wenqi and Ma, Yao and Li, Qing and He, Yuan and Zhao, Eric and Tang, Jiliang and Yin, Dawei},
+  booktitle={The World Wide Web Conference},
+  pages={417--426},
+  year={2019},
+  organization={ACM}
+}
+```
 ## Environment Settings
 ##### python: 3.6
 ##### pytorch: 0.2
