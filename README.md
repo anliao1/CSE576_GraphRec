@@ -3,7 +3,22 @@
 ## GraphRec: Graph Neural Networks for Social Recommendation
 
 ## Abstract
-In recent years, Graph Neural Networks (GNNs), which can naturally integrate node information and topological structure, have been demonstrated to be powerful in learning on graph data. These advantages of GNNs provide great potential to ad- vance social recommendation since data in social recommender systems can be represented as user-user social graph and user-item graph; and learning latent factors of users and items is the key. However, building social recommender systems based on GNNs faces challenges. For example, the user-item graph encodes both interactions and their associated opinions; social relations have heterogeneous strengths; users involve in two graphs (e.g., the user-user social graph and the user-item graph). To address the three aforementioned challenges simultaneously, in this paper, we present a novel graph neural network framework (GraphRec) for social recommendations. In particular, we provide a principled approach to jointly capture interactions and opinions in the user-item graph and propose the framework GraphRec, which coherently models two graphs and heterogeneous strengths. Extensive experiments on two real-world datasets demonstrate the effectiveness of the proposed framework GraphRec.
+raphRec models social recommendation through three attention
+pathways over item interactions (𝛼), social neighbors (𝛽), and user–
+opinion features (𝜇). However, the necessity and robustness of these
+components remain unclear, particularly under varying graph fi-
+delity. We revisit GraphRec with extensive ablation studies and pro-
+pose Dynamic Context-Aware Attention (DCA), a lightweight
+gating extension that adaptively modulates the three pathways
+based on local context. Our ablations reveal that each pathway con-
+tributes differently across datasets: social aggregation (𝛽) is most
+influential on Ciao, while opinion aggregation (𝜇) plays a larger
+role on Epinions; and static attention proves vulnerable to sparse or
+noisy relations. Our proposed DCA extension mitigates these issues
+by amplifying reliable signals and down-weighting inconsistent
+ones. Across four datasets, DCA is validated to improve accuracy
+and stability, with the combined DCA-ALL model achieving the
+strongest overall performance.
 
 ## Repository Structure & File Descriptions
 
