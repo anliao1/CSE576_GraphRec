@@ -10,6 +10,17 @@ In recent years, Graph Neural Networks (GNNs), which can naturally integrate nod
 ## Data Processing
 
 ## Ablation Study
+This module evaluates the importance of each GraphRec component.
+Ablation variants implemented:
+| Variant           | Description                                                 |
+| ----------------- | ----------------------------------------------------------- |
+| **GraphRec-SN**   | Removes the social graph → uses only item-space aggregation |
+| **GraphRec+AC** |                    |
+| **GraphRec+AG** |                    |
+| **No-α**          | Removes item aggregation attention                          |
+| **No-β**          | Removes social aggregation attention                        |
+| **No-μ**          | Removes user aggregation attention                          |
+| **No-α&-β**  | Removes item aggregation attention &   Removes social aggregation attention                      |
 
 ## Dynamic Context-Aware Attention (DCA)
 We introduce learnable gates that adaptively modulate α, β, μ based on context, improving flexibility and handling noisy signals.
