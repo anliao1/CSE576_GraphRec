@@ -2,21 +2,53 @@
 
 ## GraphRec: Graph Neural Networks for Social Recommendation
 
-
-
 ## Abstract
 In recent years, Graph Neural Networks (GNNs), which can naturally integrate node information and topological structure, have been demonstrated to be powerful in learning on graph data. These advantages of GNNs provide great potential to ad- vance social recommendation since data in social recommender systems can be represented as user-user social graph and user-item graph; and learning latent factors of users and items is the key. However, building social recommender systems based on GNNs faces challenges. For example, the user-item graph encodes both interactions and their associated opinions; social relations have heterogeneous strengths; users involve in two graphs (e.g., the user-user social graph and the user-item graph). To address the three aforementioned challenges simultaneously, in this paper, we present a novel graph neural network framework (GraphRec) for social recommendations. In particular, we provide a principled approach to jointly capture interactions and opinions in the user-item graph and propose the framework GraphRec, which coherently models two graphs and heterogeneous strengths. Extensive experiments on two real-world datasets demonstrate the effectiveness of the proposed framework GraphRec.
 
+## Repository Structure & File Descriptions
+
+### **1. Core Model Files**
+* **`GraphRec.py`**: Main model architecture and training loop.
+* **`Social_Encoders.py`** / **`Social_Aggregators.py`**: Handling user-user social graph aggregation.
+* **`UV_Encoders.py`** / **`UV_Aggregators.py`**: Handling user-item interaction graph aggregation.
+
+### **2. Dynamic Context-Aware (DCA) Extensions**
+Files implementing our custom "Gated" attention mechanisms:
+* **`UV_Aggregators_alpha.py`**: **DCA-α** (Item-Opinion Gate). Adapts fusion of item and opinion embeddings.
+* **`Social_Aggregators_beta.py`**: **DCA-β** (Social Gate). Dynamically adjusts trust influence between users.
+* **`UV_Aggregators_miu.py`**: **DCA-μ** (User-Item Trust Gate). Modulates how much an item "trusts" a user's opinion.
+
+### **3. Data Processing**
+* **`preprocess_movielens.py`**: Custom script to map **MovieLens 32M** users to the **Ciao** social graph.
+
 ## Data Processing
-MovieLens / Amazon / Ciao / Epinions...
+This project supports **Ciao**, **Epinions**, **Amazon**, and **MovieLens-Trust** dataset.
+
+### **MovieLens Setup**
+We construct a hybrid dataset by mapping users from **MovieLens 32M** to the social graph structure of **Ciao**.
+
+1.  **Download Data:**
+    * Get `ratings.csv` from the [MovieLens 32M Dataset](https://grouplens.org/datasets/movielens/).
+    * Get `trustnetwork.txt` from the [Ciao Dataset](https://www.cse.msu.edu/~tangjili/trust.html).
+2.  **Run Preprocessing:**
+    ```bash
+    python preprocess_movielens.py
+    ```
+    * *Input:* `ratings.csv`, `trustnetwork.txt`
+    * *Output:* `movielens.pickle` (contains train/val/test splits, history lists, and adjacency maps).
+
+### **Amazon Setup**
+We construct a hybrid dataset by mapping users from **Amazon** to the social graph structure of **Ciao**.
+Data: [Amazon Dataset](https://snap.stanford.edu/data/amazon-meta.html)
+
 ## Ablation Study
 This module evaluates the importance of each GraphRec component.
 Ablation variants implemented:
 | Variant           | Description                                                 |
 | ----------------- | ----------------------------------------------------------- |
 | **GraphRec-SN**   | Removes the social graph → uses only item-space aggregation |
-| **GraphRec+AC** |                    |
-| **GraphRec+AG** |                    |
+| **GraphRec+AC** | **Attention Context**: The baseline GraphRec model using standard attention mechanisms to aggregate context from neighbors. |
+| **GraphRec+AG** | **Attention Gating**: Our proposed **DCA** model that replaces standard attention with learnable dynamic gates ($\alpha, \beta, \mu$) to filter noisy signals. |
 | **No-α**          | Removes item aggregation attention                          |
 | **No-β**          | Removes social aggregation attention                        |
 | **No-μ**          | Removes user aggregation attention                          |
@@ -60,7 +92,7 @@ The overall architecture of the proposed model. It contains three major componen
 ![ 123](GraphRec.png "GraphRec")
 
 
-## Code
+## Original Code
 
 Author: Wenqi Fan (https://wenqifan03.github.io, email: wenqifan03@gmail.com) 
 
