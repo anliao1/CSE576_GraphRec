@@ -2,18 +2,32 @@
 
 ## GraphRec: Graph Neural Networks for Social Recommendation
 
-This is our implementation for the paper:
-
-[**<u>Wenqi Fan</u>**](https://wenqifan03.github.io), Yao Ma , Qing Li, Yuan He, Eric Zhao, Jiliang Tang, and Dawei Yin. [Graph Neural Networks for Social Recommendation](https://arxiv.org/pdf/1902.07243.pdf). 
-In Proceedings of the 28th International Conference on World Wide Web (WWW), 2019. 
-Preprint[https://arxiv.org/abs/1902.07243]
 
 
 ## Abstract
 In recent years, Graph Neural Networks (GNNs), which can naturally integrate node information and topological structure, have been demonstrated to be powerful in learning on graph data. These advantages of GNNs provide great potential to ad- vance social recommendation since data in social recommender systems can be represented as user-user social graph and user-item graph; and learning latent factors of users and items is the key. However, building social recommender systems based on GNNs faces challenges. For example, the user-item graph encodes both interactions and their associated opinions; social relations have heterogeneous strengths; users involve in two graphs (e.g., the user-user social graph and the user-item graph). To address the three aforementioned challenges simultaneously, in this paper, we present a novel graph neural network framework (GraphRec) for social recommendations. In particular, we provide a principled approach to jointly capture interactions and opinions in the user-item graph and propose the framework GraphRec, which coherently models two graphs and heterogeneous strengths. Extensive experiments on two real-world datasets demonstrate the effectiveness of the proposed framework GraphRec.
 
+## Data Processing
 
+## Ablation Study
 
+## Dynamic Context-Aware Attention (DCA)
+We introduce learnable gates that adaptively modulate α, β, μ based on context, improving flexibility and handling noisy signals.
+
+DCA Modules:
+| Gate      | Purpose                                                     |
+| --------- | ----------------------------------------------------------- |
+| **DCA-α** | Personalize fusion of item embedding & opinion embedding    |
+| **DCA-β** | Adjust social neighbor influence based on relation strength |
+| **DCA-μ** | Let each item decide how much to trust each user            |
+
+Run Dynamic Context-Aware α gate: Replace the original ```UV_Aggregators.py``` to ```UV_Aggregators_alpha.py```, and keep all of the other files unchanged.
+
+Run Dynamic Context-Aware β gate: Replace the original ```Social_Aggregators.py``` to ```Social_Aggregators_beta.py```, and keep all of the other files unchanged.
+
+Run Dynamic Context-Aware μ gate: Replace the original ```UV_Aggregators.py``` to ```UV_Aggregators_miu.py```, and keep all of the other files unchanged.
+
+Run Dynamic Context-Aware α,β,μ gate combined: Replace the original ```Social_Aggregators.py``` to ```Social_Aggregators_beta.py```; Replace the original ```UV_Aggregators.py``` to ```UV_Aggregators_miu.py```and and uncomment the lines marked with ```#update```, and keep all of the other files unchanged.
 ## Introduction
  Graph Data in Social Recommendation. It contains two graphs including the user-item graph (left part) and the user-user social graph (right part). Note that the number on the edges of the user-item graph denotes the opinions (or rating score) of users on the items via the interactions.
 ![ 123](intro.png "Social Recommendations")
