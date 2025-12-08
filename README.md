@@ -3,7 +3,7 @@
 ## GraphRec: Graph Neural Networks for Social Recommendation
 
 ## Abstract
-raphRec models social recommendation through three attention
+GraphRec models social recommendation through three attention
 pathways over item interactions (𝛼), social neighbors (𝛽), and user–
 opinion features (𝜇). However, the necessity and robustness of these
 components remain unclear, particularly under varying graph fi-
