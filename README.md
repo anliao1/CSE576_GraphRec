@@ -98,11 +98,4 @@ Author: Wenqi Fan (https://wenqifan03.github.io, email: wenqifan03@gmail.com)
 
 ## Environment Settings
 ##### python: 3.6
-##### pytorch: 0.2+
-
-
-# Acknowledgements
-The original version of this code base was from GraphSage. We owe many thanks to William L. Hamilton for making his code available. 
-Please see the paper for funding details and additional (non-code related) acknowledgements.
-
-Last Update Date: Oct, 2019
+##### pytorch: 0.2
