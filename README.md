@@ -43,12 +43,15 @@ Data: [Amazon Dataset](https://snap.stanford.edu/data/amazon-meta.html)
 1. Preprocess Amazon TXT dataset → rating matrix
 ```bash
     python preprocess_amazon.py
+```
 2. Build social / trust graph
 ```bash
     python extract_trust.py
+```
 3. Expand to format that GraphRec can use
 ```bash
     python amazon_graphrec.py
+```
 
 ## Ablation Study
 This module evaluates the importance of each GraphRec component.
