@@ -75,6 +75,22 @@ Run GraphRec-SN Ablation Study:
 ```
 python GraphRec-SN.py
 ```
+Run GraphRec+AC Ablation Study
+```
+python run_GraphRec_complete.py \
+            --dataset <dataset> \
+            --use_attr \
+            --fuse "concat" \
+```
+<dataset> can be ciao or epinion
+Run GraphRec+AG Ablation Study
+```
+python run_GraphRec_complete.py \
+            --dataset <dataset> \
+            --use_attr \
+            --fuse "gate" \
+```
+<dataset> can be ciao or epinion
 
 ## Dynamic Context-Aware Attention (DCA)
 We introduce learnable gates that adaptively modulate α, β, μ based on context, improving flexibility and handling noisy signals.
