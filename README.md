@@ -103,6 +103,10 @@ Run GraphRec-μ Ablation Study
 ```
 python run_GraphRec_mu_at.py
 ```
+Run GraphRec-alpha-beta Ablation Study
+```
+python run_GraphRec_ab_at.py
+```
 ## Dynamic Context-Aware Attention (DCA)
 We introduce learnable gates that adaptively modulate α, β, μ based on context, improving flexibility and handling noisy signals.
 
