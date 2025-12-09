@@ -89,7 +89,7 @@ python run_GraphRec_complete.py \
             --use_attr \
             --fuse "gate" \
 ```
-<dataset> can be ciao or epinion
+For +AC and +AG, dataset can be ciao or epinion
 
 ## Dynamic Context-Aware Attention (DCA)
 We introduce learnable gates that adaptively modulate α, β, μ based on context, improving flexibility and handling noisy signals.
