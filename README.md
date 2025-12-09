@@ -82,7 +82,6 @@ python run_GraphRec_complete.py \
             --use_attr \
             --fuse "concat" \
 ```
-<dataset> can be ciao or epinion
 Run GraphRec+AG Ablation Study
 ```
 python run_GraphRec_complete.py \
